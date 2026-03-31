@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>乘法小农场 - 拖拽方块学面积</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- 头部区域：题目和反馈 -->
+        <header class="game-header">
+            <h1>🐞 乘法小农场 🌱</h1>
+            <div class="question-area">
+                <div class="question-card">
+                    <span class="question-text" id="questionText">3 × 4 = ?</span>
+                    <div class="answer-area">
+                        <input type="number" id="answerInput" placeholder="输入答案" inputmode="numeric">
+                        <button id="checkBtn" class="check-btn">✅ 检查</button>
+                    </div>
+                </div>
+                <div class="feedback" id="feedbackMsg"></div>
+            </div>
+            <button id="newGameBtn" class="new-btn">✨ 新题目 ✨</button>
+        </header>
+
+        <!-- 游戏主区域：左侧拖拽方块面板 + 右侧游戏板（长方形搭建区） -->
+        <div class="game-play-area">
+            <!-- 左侧方块库 (可拖拽的方块) -->
+            <div class="drag-palette" id="dragPalette">
+                <h3>📦 拖拽方块</h3>
+                <div class="blocks-container" id="blocksContainer">
+                    <!-- 动态生成 1x1 的方块，数量足够搭建最大 6x6 区域 -->
+                </div>
+                <p class="hint">👉 用手指或鼠标拖拽方块到右侧农场 👈</p>
+            </div>
+
+            <!-- 右侧搭建板 (Grid 网格) -->
+            <div class="build-area">
+                <h3>🌾 我的长方形农场 🌾</h3>
+                <div class="grid-wrapper" id="gridWrapper">
+                    <div class="grid-board" id="gridBoard">
+                        <!-- 动态生成 6x6 网格，每个格子为可放置区域 -->
+                    </div>
+                </div>
+                <div class="dimension-info">
+                    当前长方形: <span id="widthDisplay">0</span> 行 × <span id="heightDisplay">0</span> 列 
+                    = <span id="areaDisplay">0</span> 个方块
+                </div>
+                <button id="clearBoardBtn" class="clear-btn">🧹 清空农场</button>
+            </div>
+        </div>
+
+        <!-- 底部激励语 -->
+        <div class="footer-message">
+            🌟 拼出一个长方形，算对面积才能收获星星哦 🌟
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
